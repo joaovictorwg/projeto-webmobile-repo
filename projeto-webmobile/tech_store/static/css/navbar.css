@@ -1,0 +1,29 @@
+.navbar{
+    width: 100%;
+    background-color: #9D00FF !important;
+    color: rgb(255, 255, 255);
+}
+.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: flex-end;
+}
+.container-fluid{
+    max-width: 1200px;
+}
+.navbar-nav{
+    color: aliceblue !important;
+}
+
+.nav-link {
+    color: aliceblue !important;
+
+}
+
+.navbar-nav .nav-link.active{
+    color: aliceblue !important;
+
+}
+.navbar-brand{
+    color: aliceblue !important;
+}

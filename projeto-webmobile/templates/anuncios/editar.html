@@ -1,0 +1,68 @@
+{% extends '../base.html' %}
+
+{% block navbar %}
+  {% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block title %}Editar Anúncio{% endblock %}
+
+{% block list %}
+<div class="container mt-5" style="max-width: 1200px;">
+    <h2 class="mb-4 text-center">Editar Anúncio</h2>
+    <form action="{% url 'editar-anuncios' anuncios.pk %}" method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+
+        <!-- Título do Produto -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card-edit">
+                    <label for="id_titulo" class="form-label fs-4 fw-bold">Título:</label>
+                    <h4>{{ anuncios.titulo }}</h4>
+                    {{ form.titulo }}
+                </div>
+            </div>
+
+            <!-- Campo de Foto -->
+            <div class="col-md-3">
+                <div class="card-edit">
+                    <label for="id_foto" class="form-label fs-4 fw-bold">Foto Atual:</label>
+                    <div class="img-edit">
+                        <img src="{{ anuncios.produtos.foto.url }}" alt="Imagem do Produto" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Campo de Preço -->
+            <div class="col-md-3">
+                <div class="card-edit">
+                    <label for="id_preco" class="form-label fs-4 fw-bold">Preço Atual:</label>
+                    <div class="value-container">{{ anuncios.preco }}</div>
+                    <label for="id_preco" class="form-label fs-4 fw-bold">Novo Preço:</label>
+                    {{ form.preco }}
+                </div>
+            </div>
+
+            <!-- Campo de Descrição -->
+            <div class="col-md-3">
+                <div class="card-edit">
+                    <label for="id_descricao" class="form-label fs-4 fw-bold">Descrição Atual:</label>
+                    <div class="value-container">{{ anuncios.descricao }}</div>
+                    <label for="id_descricao" class="form-label fs-4 fw-bold">Nova Descrição:</label>
+                    {{ form.descricao }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary me-2">Salvar Alterações</button>
+            <a href="{% url 'listar-anuncios' %}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include 'components/footer.html' %}
+{% endblock %}

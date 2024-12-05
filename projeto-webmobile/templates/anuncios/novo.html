@@ -1,0 +1,61 @@
+{% extends '../base.html' %}
+
+{% block navbar %}
+  {% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block title %}Criar Anúncio{% endblock %}
+
+{% block list %}
+<div class="container mt-5">
+    <h2 class="mb-4">Criar Novo Anúncio</h2>
+    <form action="{% url 'criar-anuncios' %}" method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+
+        <div class="row">
+            <!-- Seleção de Produto -->
+            <div class="col-md-6 mb-3">
+                <label for="id_produtos" class="form-label">Produto</label>
+                <select name="produtos" id="id_produtos" class="form-select">
+                    {% for produto in form.produtos.field.queryset %}
+                        {% if produto.anuncios.count == 0 %}
+                            <option value="{{ produto.id }}">{{ produto.titulo }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Preço -->
+            <div class="col-md-6 mb-3">
+                <label for="id_preco" class="form-label">Preço</label>
+                {{ form.preco }}
+            </div>
+
+            <!-- Descrição do Anúncio -->
+            <div class="col-md-12 mb-3">
+                <label for="id_descricao" class="form-label">Descrição do Anúncio</label>
+                {{ form.descricao }}
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="id_titulo" class="form-label">Titulo do anuncio</label>
+                {{ form.titulo }}
+            </div>
+
+            <!-- Usuário -->
+            <div class="col-md-6 mb-3">
+                <label for="id_usuario" class="form-label">Anunciante</label>
+                {{ form.usuario }}
+            </div>
+        </div>
+
+        <!-- Botões de ação -->
+        <div class="row mt-4">
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary me-2">Criar Anúncio</button>
+                <a href="{% url 'listar-anuncios' %}" class="btn btn-danger">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

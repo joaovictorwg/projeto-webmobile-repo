@@ -1,0 +1,46 @@
+/* Estilo para a div principal */
+.body {
+    background-color: #d8d8d8;
+}
+
+#main-div {
+    width: 30%; /* Definindo a largura da div */
+    margin: 0 auto; /* Centralizando a div horizontalmente */
+    padding: 20px;
+    background-color: #ffffff; /* Cor de fundo da div */
+    border-radius: 10px; /* Pontas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento suave */
+}
+
+
+/* Alterando a cor do texto do título e do formulário */
+h2 {
+    color: #9D00FF; /* Cor do título */
+}
+
+.form-label {
+    color: white; /* Cor das labels dos campos de formulário */
+}
+
+.form-control {
+    background-color: #ffffff; /* Fundo do campo de input */
+    border-color: #bbb0c4;
+    color: #bbb0c4;
+}
+
+
+
+.btn-primary {
+    background-color: #9D00FF; /* Cor do botão */
+    border-color: #8110c7; /* Cor da borda do botão */
+}
+
+.btn-primary:hover {
+    background-color: #9D00FF; /* Cor do botão ao passar o mouse */
+    border-color: #6a0eaf; /* Cor da borda ao passar o mouse */
+}
+
+/* Cor do texto "Não tem conta?" */
+p.mt-3 a {
+    color: #9D00FF !important; /* Cor roxa */
+}

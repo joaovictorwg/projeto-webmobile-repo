@@ -1,0 +1,89 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block navbar %}
+  {% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block title %}Editar Produto{% endblock %}
+
+{% block list %}
+<div class="container mt-5" style="max-width: 1200px;">
+    <h2 class="mb-4 text-center">Editar Produto</h2>
+    <form action="{% url 'editar-produtos' produtos.pk %}" method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+
+        <div class="row mb-4">
+            <!-- Título -->
+            <div class="col-md-6">
+                <div class="card-edit">
+                    <label for="id_titulo" class="form-label fs-4 fw-bold">Título Atual:</label>
+                    <h4>{{ produtos.titulo }}</h4>
+                    <label for="id_titulo" class="form-label fs-4 fw-bold">Novo Título:</label>
+                    {{ form.titulo }}
+                </div>
+            </div>
+
+            <!-- Descrição -->
+            <div class="col-md-6">
+                <div class="card-edit">
+                    <label for="id_descricao" class="form-label fs-4 fw-bold">Descrição Atual:</label>
+                    <p>{{ produtos.descricao }}</p>
+                    <label for="id_descricao" class="form-label fs-4 fw-bold">Nova Descrição:</label>
+                    {{ form.descricao }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <!-- Categoria -->
+            <div class="col-md-6">
+                <div class="card-edit">
+                    <label for="id_categoria" class="form-label fs-4 fw-bold">Categoria Atual:</label>
+                    <p>{{ produtos.categoria }}</p>
+                    <label for="id_categoria" class="form-label fs-4 fw-bold">Nova Categoria:</label>
+                    {{ form.categoria }}
+                </div>
+            </div>
+
+            <!-- Estado -->
+            <div class="col-md-6">
+                <div class="card-edit">
+                    <label for="id_estado" class="form-label fs-4 fw-bold">Estado Atual:</label>
+                    <p>{{ produtos.estado }}</p>
+                    <label for="id_estado" class="form-label fs-4 fw-bold">Novo Estado:</label>
+                    {{ form.estado }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <!-- Foto -->
+            <div class="col-md-6">
+                <div class="card-edit">
+                    <label for="id_foto" class="form-label fs-4 fw-bold">Foto Atual:</label>
+                    <div class="img-edit">
+                        {% if produtos.foto %}
+                            <img  src="{{ produtos.foto.url }}" alt="Imagem do Produto" class="img-fluid" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <p>Sem foto atual.</p>
+                        {% endif %}
+                    </div>
+                    <label for="id_foto" class="form-label fs-4 fw-bold mt-2">Nova Foto:</label>
+                    {{ form.foto }}
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary me-2">Salvar Alterações</button>
+            <a href="{% url 'listar-produtos' %}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include 'components/footer.html' %}
+{% endblock %}

@@ -1,0 +1,12 @@
+.div-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div-limit {
+    width: 100%;
+    max-width: 78%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

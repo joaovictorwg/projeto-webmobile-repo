@@ -1,0 +1,59 @@
+.div-lista{
+    margin: 50px;
+        width: 100%;
+        max-width: 1200px;
+    
+}
+.card {
+    width: 18rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve no card */
+    border-radius: 10px; /* Bordas arredondadas no card */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra mais intensa no hover */
+    transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+}
+.card-img-container {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz com que a imagem cubra toda a div */
+    object-position: center; /* Centraliza a imagem */
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+}
+
+.btn-custom {
+    background-color: #9D00FF; /* Fundo azul */
+    color: #ffffff; /* Texto branco */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Ajusta o tamanho do botão */
+    border-radius: 5px; /* Deixa os cantos arredondados */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    font-weight: bold; /* Destaca o texto */
+    cursor: pointer; /* Adiciona o ponteiro ao passar o mouse */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adiciona uma transição suave */
+}
+
+.btn-custom:hover {
+    background-color: #9D00FF; /* Azul mais escuro ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+.btn-custom:active {
+    background-color: #9D00FF; /* Azul ainda mais escuro ao clicar */
+    transform: scale(0.98); /* Leve redução para o efeito de clique */
+}

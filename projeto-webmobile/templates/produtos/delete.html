@@ -1,0 +1,37 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block navbar %}
+  {% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block title %}Deletar Veículo{% endblock %}
+
+{% block list %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Deletar Veículo</h2>
+    
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Confirmação de Deleção</h4>
+        <p>Tem certeza de que deseja deletar o produto <strong>{{ produtos.titulo }} {{ produtos.descricao }} ({{ produtos.categoria }})</strong>?</p>
+        <p>Essa ação não poderá ser desfeita.</p>
+    </div>
+
+    <form action="{% url 'deletar-produtos' produtos.pk %}" method="post">
+        {% csrf_token %}
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'listar-produtos' %}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Cancelar
+            </a>
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Deletar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include 'components/footer.html' %}
+{% endblock %}

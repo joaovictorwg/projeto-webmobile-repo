@@ -1,0 +1,27 @@
+{% extends '../base.html' %}
+
+{% block navbar %}
+  {% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block title %}Deletar Anúncio{% endblock %}
+
+{% block list %}
+<div class="container mt-5">
+    <h2 class="mb-4">Deletar Anúncio</h2>
+    <form action="{% url 'deletar-anuncios' pk=anuncios.pk %}" method="post">
+      {% csrf_token %}
+        <div class="text-center">
+            <div class="alert alert-danger" role="alert">
+                <p>Tem certeza de que deseja excluir o anúncio "<strong>{{ anuncio.produtos.titulo }}</strong>"?</p>
+            </div>
+            <button type="submit" class="btn btn-danger me-2">Confirmar</button>
+            <a href="{% url 'listar-anuncios' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include 'components/footer.html' %}
+{% endblock %}
