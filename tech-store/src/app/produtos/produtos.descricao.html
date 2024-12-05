@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Descrição do Produto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ produto?.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ produto?.categoria }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-thumbnail slot="start">
+          <img *ngIf="produto?.foto" [src]="'data:image/jpeg;base64,' + produto?.foto" />
+          <img *ngIf="!produto?.foto" src="../../assets/imgs/thumbnail.svg" />
+        </ion-thumbnail>
+        <p><strong>Descrição:</strong> {{ produto?.descricao }}</p>
+        <p><strong>Preço:</strong> R$ {{ produto?.preco }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  

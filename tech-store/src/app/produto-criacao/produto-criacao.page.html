@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Criar Produto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <form (ngSubmit)="salvarNovoProduto()">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Cadastro de Produto</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Título</ion-label>
+            <ion-input [(ngModel)]="novoProduto.titulo" name="titulo" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Categoria</ion-label>
+            <ion-input [(ngModel)]="novoProduto.categoria" name="categoria" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descrição</ion-label>
+            <ion-textarea [(ngModel)]="novoProduto.descricao" name="descricao"></ion-textarea>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label position="floating">URL da Imagem</ion-label>
+            <ion-input [(ngModel)]="novoProduto.foto" name="foto"></ion-input>
+          </ion-item>
+          <ion-button expand="full" type="submit">Salvar Produto</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </ion-content>
+  

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let produto of lista_produtos">
+      <!-- Exibindo a imagem do produto, caso exista -->
+      <ion-thumbnail slot="start">
+        <img *ngIf="produto.foto" [src]="'data:image/jpeg;base64,' + produto.foto" />
+        <img *ngIf="!produto.foto" src="../../assets/imgs/thumbnail.svg" />
+      </ion-thumbnail>
+
+      <ion-label>
+        {{ produto.titulo }} - {{ produto.categoria }}
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="abrirPaginaDescricao(produto)">Descrição</ion-button>
+        <ion-button (click)="excluirProdutos(produto.id)">Descrição</ion-button>
+        <ion-button (click)="navegarParaEdicao(produto)">Editar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
